@@ -3,4 +3,17 @@
     --font-default: "DM Sans", sans-serif;
     --font-heading: "Poppins", sans-serif;
     --font-fa: "Font Awesome";
+    /* colors */
+    --theme-color: #d7eb31;
+    --dark-color: #27252f;
+    --gray-color: #6f6f6f;
+    --light-gray-color: #cecece;
+    --extra-light-gray-color: #e6e6e6;
+    --light-color: #f7f7f7;
+    --white-color: #ffffff;
+    --danger-color: #ce2b2baf;
+
+    /*elements*/
+
+    --footer-background-color: var(--dark-color);
 }
