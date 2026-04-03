@@ -2,6 +2,20 @@ html, body {
     font-family: var(--font-default);
 }
 
+img,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 footer {
     background: var(--footer-background-color);
+    border-radius: var(--usual-border-radius);
+    color: var(--footer-text-color);
+    background-image: url("/images/footer/dark-section-img.svg");
+    padding: 4rem 4rem 0 4rem;
+    & p{
+        margin: 0;
+    }
 }
