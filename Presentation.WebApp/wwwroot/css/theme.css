@@ -12,14 +12,24 @@
     --light-color: #f7f7f7;
     --white-color: #ffffff;
     --danger-color: #ce2b2baf;
+    --primary-color: #d6eb31;
     /*elements*/
 
+    --header-bg-color: var(--dark-color);
+    --header-text-color: var(--white-color);
+    --main-menu-item-color: var(--white-color);
+    --main-menu-item-hover-color: var(--primary-color);
+    --primary-button-bg-color: var(--primary-color);
+    --primary-button-text-color: var(--dark-color);
+    --primary-button-hover-bg-color: var(--dark-color);
+    --primary-button-hover-text-color: var(--white-color);
+    --primary-button-offset-hover-bg-color: var(--white-color);
+    --primary-button-offset-hover-text-color: var(--dark-color);
     --footer-background-color: var(--dark-color);
     --footer-text-color: var(--white-color);
-
     /*border radiuses*/
     --usual-border-radius: 20px;
-
     /*font weights*/
     --semi-bold: 600;
+    --app-bg-color: var(--light-color)
 }
