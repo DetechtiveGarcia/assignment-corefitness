@@ -10,6 +10,7 @@
     <Folder Include="Models\" />
     <Folder Include="wwwroot\images\footer\" />
     <Folder Include="wwwroot\images\home\modern-equipment\" />
+    <Folder Include="wwwroot\images\hero-header\" />
   </ItemGroup>
 
   <ItemGroup>
