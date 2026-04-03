@@ -1,0 +1,36 @@
+﻿.hero-section {
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.column-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        font-weight: bold;
+        font-size: 3.375rem;
+    }
+
+    p {
+        font-weight: var(--semi-bold);
+    }
+}
+
+#bullet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.bullet-grid-point {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
