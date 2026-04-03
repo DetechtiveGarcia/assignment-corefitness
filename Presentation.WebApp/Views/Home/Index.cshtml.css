@@ -1,0 +1,101 @@
+﻿#home-sections {
+    margin: 1rem 0 1rem 0;
+}
+
+#modern-equipment-section {
+    background-color: var(--modern-equipment-bg-color);
+    height: 119px;
+    border-radius: 20px;
+    padding: 0 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    #modern-equipment-column-right > p {
+        text-align: right;
+        font-weight: bold;
+        font-size: 3rem;
+        margin: 0;
+        font-family: "Poppins";
+    }
+
+    #modern-equipment-column-left {
+        display: flex;
+        gap: 3rem;
+    }
+}
+
+#about-us-section {
+    background-color: var(--default-bg-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 6rem 19rem;
+
+    .section-title {
+        color: var(--section-title-text-color);
+    }
+
+    h2 {
+        padding-top: 1rem;
+        font-family: "Poppins";
+        font-size: 48px;
+        margin: 0;
+    }
+
+    #about-us-paragraph-1 {
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    #about-us-paragraph-2 {
+        padding: 3rem;
+        background-color: var(--about-us-paragraph2-bg-color);
+        border-radius: 20px;
+        font-weight: bold;
+    }
+}
+
+#our-programs-section {
+    border-radius: 20px;
+}
+
+#our-programs-section,
+#our-store-section {
+    background-color: var(--our-programs-bg-color);
+    color: var(--section-title-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8rem 0 4rem 0;
+
+    #our-programs-paragraph-1,
+    #our-store-paragraph-1 {
+        color: var(--our-programs-dark-text-color);
+        font-family: "Poppins";
+        font-size: 48px;
+        font-weight: 500;
+        max-width: 725px;
+        text-align: center;
+        margin-bottom: 6rem;
+    }
+
+    #our-programs-paragraph-2,
+    #our-store-paragraph-2 {
+        strong {
+            text-decoration: underline;
+        }
+
+        color: var(--our-programs-dark-text-color);
+    }
+}
+
+#our-store-section {
+    background-color: var(--default-bg-color);
+}
+
+#our-programs-grid, #our-store-grid {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}

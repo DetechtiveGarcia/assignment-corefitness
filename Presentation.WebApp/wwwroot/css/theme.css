@@ -25,6 +25,13 @@
     --primary-button-hover-text-color: var(--white-color);
     --primary-button-offset-hover-bg-color: var(--white-color);
     --primary-button-offset-hover-text-color: var(--dark-color);
+    --modern-equipment-bg-color: var(--primary-color);
+    --section-title-text-color: var(--white-color);
+    --section-title-bg-color: var(--dark-color);
+    --section-title-text-color: var(--white-color);
+    --about-us-paragraph2-bg-color: var(--white-color);
+    --our-programs-bg-color: var(--white-color);
+    --our-programs-dark-text-color: var(--dark-color);
     --footer-background-color: var(--dark-color);
     --footer-text-color: var(--white-color);
     /*border radiuses*/

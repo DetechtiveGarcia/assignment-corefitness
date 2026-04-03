@@ -4,6 +4,17 @@ html, body {
     font-size: 16px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
 .container {
     padding: 1rem;
     background-color: var(--app-bg-color);
@@ -33,6 +44,19 @@ header {
     &:has(.hero-section) {
         padding: 1.563rem 2rem 0;
     }
+}
+
+
+.section-title {
+    display: flex;
+    background-color: var(--section-title-bg-color);
+    color: var(--section-title-text-color);
+    gap: 0.5rem;
+    height: 2rem;
+    width: fit-content;
+    padding: 0 1rem;
+    align-items: center;
+    border-radius: 50px;
 }
 
 .primary-button {
