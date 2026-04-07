@@ -4,6 +4,19 @@ html, body {
     font-size: 16px;
 }
 
+hr {
+    margin: 0;
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+    opacity: 0.4;
+
+    &.primary {
+        background: var(--border-primary-color);
+        opacity: 0.1;
+    }
+}
+
 h1,
 h2,
 h3,
@@ -87,113 +100,44 @@ header {
 }
 
 .header-section {
-    display: grid;
-    grid-template-columns: auto 2fr auto;
-    align-items: center;
+    display: none;
+    padding: 0 1rem;
 
-    .logo {
-        text-align: left;
+    @media (width >= 1220px) {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-areas: "logo menu amenu";
+    }
+
+    @media (width >= 1600px) {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+
+    .logotype {
+        grid-area: logo;
     }
 
     .main-menu {
         display: flex;
         justify-content: center;
-        font-size: 1rem;
-        font-weight: 600;
-
-        .menu-item {
-            color: var(--main-menu-item-color);
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-
-            &:hover {
-                color: var(--main-menu-item-hover-color);
-                text-decoration: underline;
-                text-underline-offset: 0.8rem;
-            }
-
-            &:active,
-            &.active {
-                color: var(--main-menu-item-hover-color);
-                text-decoration: underline;
-                text-underline-offset: 0.8rem;
-            }
-
-            &.dropdown::after {
-                content: "\f078";
-                margin-left: 0.6rem;
-                font-family: "Font Awesome 7 Pro";
-                font-weight: 400;
-            }
-
-            &.dropdown:hover {
-                text-decoration: none;
-            }
-            /* &.active::after{ om man vill göra animterat
-        content: "";
-        height: 1px;
-        width: 100%;
-        color: white
-      } */
-        }
+        align-items: center;
     }
 
     .account-menu {
+        grid-area: amenu;
         display: flex;
         justify-content: flex-end;
-        gap: 2rem;
         align-items: center;
-        font-size: 1rem;
-        font-weight: 600;
-
-        .menu-item {
-            color: var(--main-menu-item-color);
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-
-            &:hover {
-                color: var(--main-menu-item-hover-color);
-                text-decoration: underline;
-                text-underline-offset: 0.8rem;
-            }
-
-            &:active,
-            &.active {
-                color: var(--main-menu-item-hover-color);
-                text-decoration: underline;
-                text-underline-offset: 0.8rem;
-            }
-
-            &.dropdown::after {
-                content: "\f078";
-                font-family: "Font Awesome 7 Pro";
-                font-weight: 400;
-            }
-
-            &.dropdown:hover {
-                text-decoration: none;
-            }
-            /* &.active::after{ om man vill göra animterat
-        content: "";
-        height: 1px;
-        width: 100%;
-        color: white
-      } */
-        }
-    }
-
-    ul {
-        display: flex;
         gap: 2rem;
-        margin: 0;
-        padding: 0;
+
+  /*      .signup {
+            display: none;
+
+            @media (width >= 1600px) {
+                display: grid;
+            }
+        }*/
     }
-
-    li {
-        list-style-type: none;
-    }
-
-
 }
 
 .primary-button:hover {
@@ -203,7 +147,7 @@ header {
 
 
 footer {
-    background: var(--footer-background-color);
+    background: var(--footer-bg-color);
     border-radius: var(--usual-border-radius);
     color: var(--footer-text-color);
     background-image: url("/images/dark-section-img.svg");

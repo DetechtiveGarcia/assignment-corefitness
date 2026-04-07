@@ -14,8 +14,13 @@
    <div class="container">
        <div class="app-layout">
            <header>
-                @* <partial name="Partials/Common/Header/_HeaderSection" /> *@
-                <partial name="Partials/Common/HeroHeader/_HeroHeader" />
+                 <partial name="Partials/Common/Header/_HeaderSection" /> 
+                @* <partial name="Partials/Common/HeroHeader/_HeroHeader" /> *@
+                @if (IsSectionDefined("Hero"))
+                {
+                    @RenderSection("Hero", required: false)
+                }
+
            </header>
            <main>
 

@@ -3,10 +3,9 @@ using Presentation.WebApp.Attributes.MenuNavigation;
 
 namespace Presentation.WebApp.Controllers;
 
-public class HomeController : Controller
+public class MembershipsController : Controller
 {
-
-    [HideInMenu]
+    [MenuItem(title: "Memberships", order: 1)]
     public IActionResult Index()
     {
         return View();
