@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Attributes\MenuNavigation\" />
-    <Folder Include="Routing\" />
-    <Folder Include="Services\MenuNavigation\" />
-    <Folder Include="Views\Shared\Partials\Common\MenuNavigation\" />
     <Folder Include="wwwroot\images\footer\" />
     <Folder Include="wwwroot\images\home\modern-equipment\" />
     <Folder Include="wwwroot\images\hero-header\" />
