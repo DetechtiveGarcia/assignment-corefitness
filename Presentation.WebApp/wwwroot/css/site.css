@@ -68,6 +68,17 @@ h6 {
     font-style: normal;
 }
 
+.icon-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+
 .container {
     padding: 1rem;
     background-color: var(--app-bg-color);
@@ -103,6 +114,7 @@ header {
 }
 
 
+
 .section-title {
     display: flex;
     background-color: var(--section-title-bg-color);
@@ -113,6 +125,10 @@ header {
     padding: 0 1rem;
     align-items: center;
     border-radius: 50px;
+}
+
+.section-side-img {
+    border-radius: 20px;
 }
 
 .primary-button {
@@ -194,5 +210,41 @@ footer {
     padding: 4rem 4rem 0 4rem;
     & p{
         margin: 0;
+    }
+}
+
+#faq-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    max-width: 1320px;
+    margin: 7rem 0;
+
+    #faq-section-left {
+    }
+
+    #faq-section-right {
+        .faq-title {
+            margin: 0;
+        }
+
+        #questions {
+            .question {
+                font-weight: var(--semi-bold);
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &::after {
+                    content: "\f13a";
+                    font-family: "Font Awesome 7 Pro";
+                    margin-right: 1rem;
+                    color: var(--primary-color);
+                    background: var(--dark-color);
+                    border-radius: 50%;
+                }
+            }
+        }
     }
 }

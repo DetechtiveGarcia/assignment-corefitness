@@ -1,0 +1,177 @@
+﻿
+/* inputs + textarea */
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* main section */
+#customer-service-section .cs-title {
+    text-align: center;
+}
+
+/* contact container */
+#customer-service-section #contact-us-today-section {
+    max-width: 1320px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    background-color: var(--white-color);
+    border-radius: 20px;
+}
+
+    /* right side */
+    #customer-service-section #contact-us-today-section .contact-us-today-right {
+        padding: 3rem 4rem 1rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+        /* reset paragraph margins */
+        #customer-service-section #contact-us-today-section .contact-us-today-right p {
+            margin: 0;
+        }
+
+/* form title */
+#form-title {
+    font-family: "Poppins";
+    font-weight: var(--semi-bold);
+    font-size: 28px;
+}
+
+/* pep talk */
+#form-pep-talk {
+    color: var(--gray-color);
+}
+
+/* form wrapper */
+#customer-service-section #contact-us-today-section .contact-us-today-right form {
+    margin: 2rem 0;
+}
+
+    /* grid inside form */
+    #customer-service-section #contact-us-today-section .contact-us-today-right form #form-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    /* form field */
+    #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+        /* labels */
+        #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field label {
+            font-family: "Poppins";
+            font-weight: var(--semi-bold);
+            font-size: 14px;
+        }
+
+        /* inputs */
+        #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field input {
+            border: 0;
+            height: 50px;
+            border-radius: 8px;
+            background-color: var(--light-color);
+            padding: 0 1rem;
+        }
+
+            /* input placeholder */
+            #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field input::placeholder {
+                color: #a7a7a7;
+                font-family: "DM Sans";
+                padding-left: 1rem;
+            }
+
+    /* submit */
+    #customer-service-section #contact-us-today-section .contact-us-today-right form input[type="submit"] {
+        font-family: "DM Sans";
+    }
+
+    /* textarea full width */
+    #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field:has(#Message) {
+        grid-column: 1 / -1;
+    }
+
+/* left side */
+#customer-service-section #contact-us-today-section .contact-us-today-left {
+    position: relative;
+}
+
+    /* contact info box */
+    #customer-service-section #contact-us-today-section .contact-us-today-left #contact-info {
+        display: flex;
+        position: absolute;
+        bottom: 2.5rem;
+        left: 7%;
+        height: 107px;
+        width: 523px;
+        border-radius: 20px;
+        justify-content: space-evenly;
+        backdrop-filter: blur(25px);
+    }
+
+/* icons */
+#contact-info .phone::after {
+    content: "\f095";
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 400;
+    font-size: 24px;
+}
+
+#contact-info .email::after {
+    content: "\f0e0";
+    font-family: "Font Awesome 7 Pro";
+    font-weight: 400;
+    font-size: 24px;
+}
+
+/* contact layout */
+#contact-info-left,
+#contact-info-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+    /* reset text */
+    #contact-info-left p,
+    #contact-info-right p {
+        margin: 0;
+    }
+
+/* titles */
+#phone-title,
+#email-title {
+    font-family: "Poppins";
+    font-weight: var(--semi-bold);
+    font-size: 20px;
+    color: var(--white-color);
+}
+
+/* text */
+#phone,
+#email {
+    color: var(--white-color);
+}
+
+/* textarea */
+textarea {
+    border: 0;
+    background-color: var(--light-color);
+    height: 150px;
+    margin-bottom: 4rem;
+    border-radius: 8px;
+}
+
+    /* textarea placeholder */
+    textarea::placeholder {
+        color: #a7a7a7;
+        font-family: "DM Sans";
+        padding: 1rem 1.5rem;
+    }
