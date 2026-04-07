@@ -1,0 +1,203 @@
+﻿#our-memberships-offers-section {
+    .memberships-title {
+        text-align: center;
+        margin: 3rem 0;
+    }
+
+    #offers-grid {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+
+        .offer-card {
+            background-color: var(--white-color);
+            width: 404px;
+            height: 612px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: center;
+
+            .upper-card-section {
+                gap: 45px;
+                margin: 0 2rem;
+
+                .dumb-bell {
+                    margin-top: 60px;
+
+                    &::after {
+                        content: "\f44b";
+                        font-family: "Font Awesome 7 Pro";
+                        font-weight: 400;
+                        font-size: 24px;
+                    }
+                }
+
+                .offer-title {
+                    font-family: "Poppins";
+                    font-weight: var(--semi-bold);
+                    font-size: 18px;
+                    margin: 0;
+                    padding: 1.5rem 0 2rem 0;
+                }
+
+                .offer-description {
+                    margin: 0;
+                }
+            }
+
+            .bullet-grid {
+                padding: 2rem 0 0.5rem 0;
+
+                .bullet-point {
+                    /* &::before {
+                content: "\f058";
+                font-family: "Font Awesome 7 Pro";
+                
+                } */
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    .fa-circle-check {
+                        color: var(--primary-color);
+                    }
+                }
+            }
+
+            .join-now-card {
+                background-color: var(--dark-color);
+                width: 350px;
+                height: 190px;
+                border-radius: 20px;
+                justify-self: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: center;
+                gap: 3rem;
+                color: var(--white-color);
+                padding: 0 1rem;
+
+                p {
+                    margin: 0;
+                }
+
+                .upper-section {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .left-section {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .membership-price {
+                            font-family: "Poppins";
+                            font-weight: bold;
+                            font-size: 24px;
+
+                            span {
+                                font-family: "DM Sans";
+                                font-weight: 500;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #call-us-card {
+            background-color: var(--dark-color);
+            width: 404px;
+            height: 612px;
+            border-radius: 20px;
+            color: var(--white-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+
+            .title {
+                padding: 1rem 0 0 0;
+                font-size: 18px;
+                font-weight: var(--semi-bold);
+            }
+
+            .call-us-description {
+                text-align: center;
+                margin: -0.5rem 1.5rem;
+                padding-bottom: 1rem;
+            }
+
+            .call-us-number {
+                font-weight: 800;
+                font-size: 20px;
+                padding: 2rem 0 1rem 0;
+            }
+
+            #call-us-img {
+                align-self: flex-end;
+                padding-top: 3rem;
+            }
+        }
+    }
+}
+
+#good-things-grid {
+    display: flex;
+    justify-content: center;
+    gap: 3.5rem;
+    padding: 2rem 0;
+
+    .good-thing {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        .fa-calendar-check {
+            color: var(--primary-color);
+        }
+    }
+}
+
+#faq-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: center;
+    max-width: 1320px;
+    margin: 7rem 0;
+
+    #faq-section-left {
+    }
+
+    #faq-section-right {
+        .faq-title {
+            margin: 0;
+        }
+
+        #questions {
+            .question {
+                font-weight: var(--semi-bold);
+                font-size: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                &::after {
+                    content: "\f13a";
+                    font-family: "Font Awesome 7 Pro";
+                    margin-right: 1rem;
+                    color: var(--primary-color);
+                    background: var(--dark-color);
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+/*f44b*/
