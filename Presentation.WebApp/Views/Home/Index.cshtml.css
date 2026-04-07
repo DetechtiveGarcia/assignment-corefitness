@@ -3,10 +3,10 @@
 }
 
 #modern-equipment-section {
-    background-color: var(--modern-equipment-bg-color);
+    background-color: var(--equipment-bg-color);
     height: 119px;
     border-radius: 20px;
-    padding: 0 4rem;
+    padding: 0 3.5rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -62,8 +62,8 @@
 
 #our-programs-section,
 #our-store-section {
-    background-color: var(--our-programs-bg-color);
-    color: var(--section-title-text-color);
+    background-color: var(--section-bg-color);
+    /*    color: var(--section-title-text-color);*/
     display: flex;
     flex-direction: column;
     align-items: center;
