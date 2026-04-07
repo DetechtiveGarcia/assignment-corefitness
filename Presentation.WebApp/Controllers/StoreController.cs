@@ -5,7 +5,7 @@ namespace Presentation.WebApp.Controllers;
 
 public class StoreController : Controller
 {
-    [MenuItem(title: "Store", order: 1)]
+    [MenuItem(title: "Store", order: 5)]
     public IActionResult Index()
     {
         return View();

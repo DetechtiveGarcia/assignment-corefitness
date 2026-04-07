@@ -5,7 +5,7 @@ namespace Presentation.WebApp.Controllers;
 
 public class MembershipsController : Controller
 {
-    [MenuItem(title: "Memberships", order: 1)]
+    [MenuItem(title: "Memberships", order: 2)]
     public IActionResult Index()
     {
         return View();
