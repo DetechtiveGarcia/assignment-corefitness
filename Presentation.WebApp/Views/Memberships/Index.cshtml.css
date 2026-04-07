@@ -164,40 +164,6 @@
     }
 }
 
-#faq-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-self: center;
-    max-width: 1320px;
-    margin: 7rem 0;
 
-    #faq-section-left {
-    }
-
-    #faq-section-right {
-        .faq-title {
-            margin: 0;
-        }
-
-        #questions {
-            .question {
-                font-weight: var(--semi-bold);
-                font-size: 18px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                &::after {
-                    content: "\f13a";
-                    font-family: "Font Awesome 7 Pro";
-                    margin-right: 1rem;
-                    color: var(--primary-color);
-                    background: var(--dark-color);
-                    border-radius: 50%;
-                }
-            }
-        }
-    }
-}
 
 /*f44b*/

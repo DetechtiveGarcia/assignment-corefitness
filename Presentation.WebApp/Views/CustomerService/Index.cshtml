@@ -1,0 +1,123 @@
+﻿@model ContactForm
+@{
+    ViewData["Title"] = "Customer Service";
+}
+
+<section id="customer-service-section">
+    <h1 class="title cs-title">Customer Service</h1>
+    <div id="contact-us-today-section">
+        <div class="contact-us-today-left">
+            <img src="~/images/customer service/contact-us-image 1.png" alt="" />
+            <div id="contact-info">
+                <div id="contact-info-left">
+                    <div class="icon-bg phone"></div>
+                    <div id="phone-info">
+                        <p id="phone-title">Phone Number</p>
+                        <p id="phone">+(46) 8 410 521 00</p>
+                    </div>
+                </div>
+                <div id="contact-info-right">
+                    <div class="icon-bg email"></div>
+                    <div id="email-info">
+                        <p id="email-title">Email Address</p>
+                        <p id="email">info@corefitness.se</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-us-today-right">
+            <p id="form-title">Contact Us Today</p>
+            <p id="form-pep-talk">
+                Ready to begin your fitness journey? Contact GymPro today and let
+                our expert trainers guide you with the right program and support.
+            </p>
+            <form method="post" novalidate>
+                <div id="form-fields">
+                    <div class="form-field">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" placeholder="@Html.DisplayNameFor(m => m.FirstName)"/>
+                        <span asp-validation-for="FirstName"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" placeholder="@Html.DisplayNameFor(m => m.LastName)" />
+                        <span asp-validation-for="LastName"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" placeholder="@Html.DisplayNameFor(m => m.Email)"/>
+                        <span asp-validation-for="Email"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="PhoneNumber"></label>
+                        <input asp-for="PhoneNumber" placeholder="@Html.DisplayNameFor(m => m.PhoneNumber)"/>
+                        <span asp-validation-for="PhoneNumber"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Message"></label>
+                        <textarea asp-for="Message" placeholder="@Html.DisplayNameFor(m => m.Message)"></textarea>
+                        <span asp-validation-for="Message"></span>
+                    </div>
+                </div>
+
+                <input type="submit"
+                       value="Submit Message"
+                       class="primary-button" />
+            </form>
+        </div>
+    </div>
+</section>
+<section id="faq-section">
+    <div id="faq-section-left">
+        <img src="~/images/customer service/faqs-image 1.png" alt="" class="section-side-img" />
+    </div>
+    <div id="faq-section-right">
+        <div class="section-title">
+            <img src="~/images/section-title-bullet.svg" alt="" />
+            <span>Frequently Asked Questions</span>
+        </div>
+        <p class="title faq-title">
+            Common questions about gym and training
+        </p>
+        <div id="questions">
+            <div class="qa">
+                <p class="question">
+                    Q1. Do I need prior gym experience to Join CoreFitness?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q2. What facilities are included with the membership?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q3. Can I try them gym before taking a membership?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q4. Are there group workout programs available?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q5. Is nutrition guidance included in the plans?
+                </p>
+                <p class="answer"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -5,7 +5,7 @@ namespace Presentation.WebApp.Controllers;
 
 public class TrainingController : Controller
 {
-    [MenuItem(title: "Personal Training", order: 1)]
+    [MenuItem(title: "Personal Training", order: 3)]
     public IActionResult PersonalTraining()
     {
         return View();
