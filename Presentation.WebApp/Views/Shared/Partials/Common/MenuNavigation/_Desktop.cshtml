@@ -1,0 +1,34 @@
+﻿@{
+    var menu = MenuNavigationService.GetMenu();
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+<nav class="main-menu menu">
+    @foreach (var item in menu)
+    {
+        var isSingleLinkActive = item.Children.Count <= 1 && item.Children.Any(x => x.ControllerName == currentController && x.ActionName == currentAction);
+        var isDropdownAction = item.Children.Count > 1 && item.Children.Any(x => x.ControllerName == currentController && x.ActionName == currentAction);
+        
+        if(item.Children.Count <= 1 && !string.IsNullOrWhiteSpace(item.Url))
+        {
+            <a class="menu-item @(isSingleLinkActive ? "active" : "")" href="@item.Url.ToLower()">@item.DisplayName</a>
+        }
+        else
+        {
+            <div class="menu-item dropdown @(isDropdownAction ? "active" : "")">
+                <span class="dropdown-trigger">
+                    @item.DisplayName
+                </span>
+                <div class="dropdown-menu">
+                    @foreach (var child in item.Children)
+                    {
+                        var isChildActive = child.ControllerName == currentController && child.ActionName == currentAction; 
+                        <a class="dropdown-item @(isChildActive ? "active" : "")" href="@child.Url.ToLower()">@child.DisplayName</a>
+                    }
+                </div>
+            </div>
+        }
+
+    }
+</nav>
