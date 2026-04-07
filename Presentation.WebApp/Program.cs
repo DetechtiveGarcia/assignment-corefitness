@@ -20,7 +20,8 @@ builder.Services.AddRouting(x => x.LowercaseUrls = true);
 
 var app = builder.Build();
 
-
+app.UseExceptionHandler("/error/500");
+app.UseStatusCodePagesWithReExecute("/error/{0}");
 
 
 app.UseHsts();
