@@ -46,6 +46,7 @@
     --menu-button-hover-text-color: var(--white-color);
     --menu-button-hover-offset-bg-color: var(--dark-color);
     --menu-button-hover-offset-text-color: var(--primary-color);
+    --section-bg-color: var(--white-color);
     --section-title-bg-color: var(--dark-color);
     --section-title-text-color: var(--white-color);
     --section-title-dot-color: var(--primary-color);
