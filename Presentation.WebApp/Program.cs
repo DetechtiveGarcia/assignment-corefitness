@@ -17,7 +17,6 @@ builder.Services.AddScoped<IMenuNavigationService, MenuNavigationService>();
 
 builder.Services.AddSession();
 builder.Services.AddRouting(x => x.LowercaseUrls = true);
-builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
