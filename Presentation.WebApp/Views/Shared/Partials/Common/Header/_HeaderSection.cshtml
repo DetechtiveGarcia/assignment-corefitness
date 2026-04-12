@@ -9,6 +9,7 @@
 
         <nav class="account-menu menu">
             <a class="signup menu-item" asp-controller="Authentication" asp-action="SignUp">Become Member</a>
-            <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a>
+            @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
+            <a class="primary-button offset" asp-controller="Authentication" asp-action="SignIn">Sign In</a>
         </nav>
 </section>  
