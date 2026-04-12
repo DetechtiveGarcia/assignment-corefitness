@@ -1,5 +1,7 @@
 ﻿using Application.Abstractions.Services;
+using Application.Services.FitnessClasses;
 using Application.Services.Members;
+using Application.Services.Memberships;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +14,8 @@ public static class ApplicationServiceCollectionExtensions
     {
 
         services.AddScoped<IMemberService, MemberService>();
+        services.AddScoped<IMembershipService, MembershipService>();
+        services.AddScoped<IFitnessClassService, FitnessClassService>();
         return services;
     }
 }
