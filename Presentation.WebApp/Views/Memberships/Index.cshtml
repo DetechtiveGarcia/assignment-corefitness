@@ -40,11 +40,18 @@
                             </div>
                             <p>* Monthly 20 Classes</p>
                         </div>
-                        <div class="right-section">
-                            <a href="#" class="primary-button">
-                                Join Now
-                            </a>
-                        </div>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <form method="post" asp-action="Index" asp-controller="Memberships">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="MembershipName" value="Standard" />
+                                <button type="submit" class="primary-button">Join Now</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a asp-controller="Authentication" asp-action="SignUpEmail" class="primary-button">Join Now</a>
+                        }
                     </div>
                     <div class="lower-section">
                         <p>Try Any Membership Free for 1 Week</p>
@@ -89,9 +96,18 @@
                             <p>* Monthly 20 Classes</p>
                         </div>
                         <div class="right-section">
-                            <a href="#" class="primary-button">
-                                Join Now
-                            </a>
+                            @if (User.Identity?.IsAuthenticated == true)
+                            {
+                                <form method="post" asp-action="Index" asp-controller="Memberships">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="MembershipName" value="Premium" />
+                                    <button type="submit" class="primary-button">Join Now</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <a asp-controller="Authentication" asp-action="SignUpEmail" class="primary-button">Join Now</a>
+                            }
                         </div>
                     </div>
                     <div class="lower-section">
