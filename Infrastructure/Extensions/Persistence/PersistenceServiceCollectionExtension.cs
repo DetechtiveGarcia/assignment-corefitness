@@ -1,4 +1,6 @@
 ﻿using Application.Abstractions.Persistence;
+using Application.Abstractions.Services;
+using Application.Services.Memberships;
 using Infrastructure.Persistence.Contexts;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +20,9 @@ public static class PersistenceServiceCollectionExtension
         });
 
         services.AddScoped<IMemberRepository, MemberRepository>();
+
+        services.AddScoped<IMembershipRepository, MembershipRepository>();
+        services.AddScoped<IMembershipService, MembershipService>();
         return services;
     }
 }
