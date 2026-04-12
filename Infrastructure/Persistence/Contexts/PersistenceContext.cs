@@ -1,4 +1,5 @@
-﻿using Infrastructure.Identity;
+﻿using Domain.Entities;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -13,4 +14,6 @@ public class PersistenceContext(DbContextOptions<PersistenceContext> options) : 
 
         builder.ApplyConfigurationsFromAssembly(typeof(PersistenceContext).Assembly);
     }
+
+    public DbSet<Member> Members => Set<Member>();
 }

@@ -7,7 +7,7 @@ public class SignUpEmailForm
     [Required]
     [EmailAddress]
     [DataType(DataType.EmailAddress)]
-    [Display(Name = "Email Address", Prompt = "username@example.com")]
+    [Display(Name = "Email *", Prompt = "username@example.com")]
     public string Email { get; set; } = null!;
 
 
