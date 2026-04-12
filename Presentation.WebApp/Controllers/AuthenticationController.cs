@@ -6,21 +6,30 @@ namespace Presentation.WebApp.Controllers;
 public class AuthenticationController : Controller
 {
     [HideInMenu]
-    public IActionResult SignUp()
-    {
-        return View();
-    }
-
-    [HideInMenu]
-    public IActionResult SetPassword()
+    [HttpGet("authentication/signup-email")]
+    public IActionResult SignUpEmail()
     {
         return View();
     }
 
     [HideInMenu]
     [HttpGet]
-    public IActionResult SignIn()
+    public IActionResult SignUpPassword()
     {
+        var email = HttpContext.Session.GetString("Email");
+
+        if (string.IsNullOrWhiteSpace(email))
+            return RedirectToAction("SignUpEmail");
+
         return View();
     }
+
+    [HttpGet]
+    public IActionResult SignIn(string? returnUrl = null)
+    {
+        ViewBag.ReturnUrl = returnUrl;
+        return View();
+    }
+
+
 }
