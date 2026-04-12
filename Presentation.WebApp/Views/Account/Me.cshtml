@@ -14,6 +14,27 @@
             <img src="~/images/account/trainer-1 1.png" alt="" />
         }
         <div id="my-menu-options">
+            @if (ViewBag.Membership is Application.Dtos.Memberships.MembershipDetails membership)
+            {
+                <div id="my-membership-card">
+                    <p class="membership-card-title">My Membership</p>
+                    <p><strong>Plan:</strong> @membership.MembershipName</p>
+                    <p><strong>Start Date:</strong> @membership.StartDate.ToString("yyyy-MM-dd")</p>
+                    <p><strong>End Date:</strong> @membership.EndDate.ToString("yyyy-MM-dd")</p>
+                    <p>
+                        <strong>Status:</strong>
+                        @(membership.EndDate >= DateTime.UtcNow ? "Active" : "Expired")
+                    </p>
+                </div>
+            }
+            else
+            {
+                <div id="my-membership-card">
+                    <p class="membership-card-title">My Membership</p>
+                    <p>No membership selected yet.</p>
+                    <a asp-controller="Memberships" asp-action="Index" class="primary-button">Choose Membership</a>
+                </div>
+            }
             <p id="menu-title">Menu options</p>
             <ul>
                 <li>
