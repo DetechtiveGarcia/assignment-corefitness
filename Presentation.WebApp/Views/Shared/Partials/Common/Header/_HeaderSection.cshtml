@@ -8,8 +8,18 @@
         <partial name="Partials/Common/MenuNavigation/_Desktop" />
 
         <nav class="account-menu menu">
-            <a class="signup menu-item" asp-controller="Authentication" asp-action="SignUpEmail">Become Member</a>
-            @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
-            <a class="primary-button offset" asp-controller="Authentication" asp-action="SignIn">Sign In</a>
+        @if(User.Identity?.IsAuthenticated == true)
+        {
+                <a class="signup menu-item" asp-controller="Account" asp-action="OurClasses">Our classes</a>
+                @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
+                <a class="primary-button offset" asp-controller="Account" asp-action="Me">My Account</a>
+        }
+        else
+        {
+                <a class="signup menu-item" asp-controller="Authentication" asp-action="SignUpEmail">Become Member</a>
+                @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
+                <a class="primary-button offset" asp-controller="Authentication" asp-action="SignIn">Sign In</a>
+        }
+       
         </nav>
 </section>  
