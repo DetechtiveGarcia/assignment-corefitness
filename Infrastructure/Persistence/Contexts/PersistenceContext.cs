@@ -16,4 +16,5 @@ public class PersistenceContext(DbContextOptions<PersistenceContext> options) : 
     }
 
     public DbSet<Member> Members => Set<Member>();
+    public DbSet<Membership> Memberships => Set<Membership>();
 }
