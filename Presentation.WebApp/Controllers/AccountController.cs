@@ -10,7 +10,10 @@ using System.Security.Claims;
 namespace Presentation.WebApp.Controllers
 {
     [Authorize]
-    public class AccountController(IMemberService memberService, IIdentityService identityService) : Controller
+    public class AccountController(
+    IMemberService memberService,
+    IIdentityService identityService,
+    IMembershipService membershipService) : Controller
     {
         [HideInMenu]
         public async Task<IActionResult> Me()
@@ -36,6 +39,9 @@ namespace Presentation.WebApp.Controllers
                 ExistingProfileImageUrl = result.MemberDetails.ProfileImageUrl
             };
 
+
+            var membership = await membershipService.GetMembershipAsync(userId);
+            ViewBag.Membership = membership;
             ViewBag.Email = result.MemberDetails.Email;
 
             return View(form);
@@ -54,8 +60,10 @@ namespace Presentation.WebApp.Controllers
             {
                 var email = await identityService.GetEmailAsync(userId);
                 var memberServiceResult = await memberService.GetMemberDetailAsync(userId);
+                var membership = await membershipService.GetMembershipAsync(userId);
 
                 ViewBag.Email = email;
+                ViewBag.Membership = membership;
                 form.ExistingProfileImageUrl = memberServiceResult.MemberDetails?.ProfileImageUrl;
 
                 return View(form);
@@ -100,7 +108,10 @@ namespace Presentation.WebApp.Controllers
                 foreach (var error in result.Errors)
                     ModelState.AddModelError("", error);
 
+                var membership = await membershipService.GetMembershipAsync(userId);
+
                 ViewBag.Email = memberResult.MemberDetails.Email;
+                ViewBag.Membership = membership;
                 form.ExistingProfileImageUrl = profileImageUrl;
 
                 return View(form);
