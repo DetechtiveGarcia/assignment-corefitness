@@ -117,8 +117,7 @@ public class AuthenticationController(IIdentityService identityService, IMemberS
         if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
             return Redirect(returnUrl);
 
-        if (User.IsInRole("Admin"))
-            return RedirectToAction("Index", "Classes");
+  
 
         return RedirectToAction("Me", "Account");
 
