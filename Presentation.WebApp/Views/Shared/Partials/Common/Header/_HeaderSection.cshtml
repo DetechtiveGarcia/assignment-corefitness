@@ -10,7 +10,7 @@
         <nav class="account-menu menu">
         @if(User.Identity?.IsAuthenticated == true)
         {
-                <a class="signup menu-item" asp-controller="Account" asp-action="OurClasses">Our classes</a>
+                <a class="signup menu-item" asp-controller="Classes" asp-action="Index">Our classes</a>
                 @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
                 <a class="primary-button offset" asp-controller="Account" asp-action="Me">My Account</a>
         }
