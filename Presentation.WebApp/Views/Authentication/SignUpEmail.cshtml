@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Become a member";
+}
+
+<section id="sign-up-page">
+    <div id="sign-up-form">
+        <h1 class="title">Become a Member</h1>
+        <p>
+            Sign up to continue your fitness journey with full access to your
+            customized program, training history, and progress tracking. Stay
+            consistent, monitor your development, and keep moving forward with the
+            structure and support built into your account.
+        </p>
+        <hr />
+        <div id="external-login-providers">
+            <div class="login-provider-icon-border">
+                <img src="~/images/google-icon.svg" alt="" />
+            </div>
+            <div class="login-provider-icon-border">
+                <img src="~/images/github-icon.svg" alt="" />
+            </div>
+        </div>
+
+        <p id="break-line-with-text">OR CONTINUE WITH</p>
+
+        <form method="post">
+            <div class="form-fields">
+                <div class="form-field">
+                    <label for="email-address">Email Address *</label>
+                    <input type="text"
+                           name="email-address"
+                           id="email-address"
+                           placeholder="Enter email Address" />
+                </div>
+            </div>
+            <a href="" class="primary-button" id="sign-up-submit-btn">
+                Continue
+            </a>
+        </form>
+        <p id="verification-notice">
+            We will send a verification to your email address
+        </p>
+    </div>
+</section>
