@@ -1,11 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Sign In";
+    ViewData["Title"] = "Become a member";
 }
-<section id="sign-in-page">
-    <div id="sign-in-form">
-        <h1 class="title">Welcome Back!</h1>
+
+<section id="sign-up-page">
+    <div id="sign-up-form">
+        <h1 class="title">Become a Member</h1>
         <p>
-            Log in to continue your fitness journey with full access to your
+            Sign up to continue your fitness journey with full access to your
             customized program, training history, and progress tracking. Stay
             consistent, monitor your development, and keep moving forward with the
             structure and support built into your account.
@@ -15,11 +16,11 @@
             <div class="login-provider-icon-border">
                 <img src="~/images/google-icon.svg" alt="" />
             </div>
- 
             <div class="login-provider-icon-border">
                 <img src="~/images/github-icon.svg" alt="" />
             </div>
         </div>
+
         <p id="break-line-with-text">OR CONTINUE WITH</p>
 
         <form method="post">
@@ -29,28 +30,15 @@
                     <input type="text"
                            name="email-address"
                            id="email-address"
-                           placeholder="Enter Email Address" />
-                </div>
-                <div class="form-field">
-                    <div id="password-label-and-forgot-password">
-                        <label for="password">Password *</label>
-                        <a href="">Forgot Password?</a>
-                    </div>
-                    <input type="text"
-                           name="password"
-                           id="password"
-                           placeholder="Enter Password" />
+                           placeholder="Enter email Address" />
                 </div>
             </div>
-            <a href="" class="primary-button" id="sign-in-submit-btn">
+            <a href="" class="primary-button" id="sign-up-submit-btn">
                 Continue
             </a>
-            <div id="accept-utac-section">
-                <input type="checkbox" name="accept-utac" id="accept-utac" />
-                <label for="accept-utac">
-                    Accept user terms and conditions
-                </label>
-            </div>
         </form>
+        <p id="verification-notice">
+            We will send a verification to your email address
+        </p>
     </div>
 </section>
