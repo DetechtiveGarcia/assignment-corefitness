@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SignUpEmailForm
+@{
     ViewData["Title"] = "Become a member";
 }
 
@@ -23,22 +24,33 @@
 
         <p id="break-line-with-text">OR CONTINUE WITH</p>
 
-        <form method="post">
+        <form method="post" asp-action="SignUpEmail" asp-controller="Authentication">
+            @Html.AntiForgeryToken()
+            @if (TempData["ErrorMessage"] is string errorMessage)
+            {
+                <div class="form-field-validation">
+                    @errorMessage
+                </div>
+            }
+            <div asp-validation-summary="ModelOnly"></div>
             <div class="form-fields">
                 <div class="form-field">
-                    <label for="email-address">Email Address *</label>
-                    <input type="text"
-                           name="email-address"
-                           id="email-address"
-                           placeholder="Enter email Address" />
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" />
+                    <span class="form-field-validation" asp-validation-for="Email"></span>
                 </div>
             </div>
-            <a href="" class="primary-button" id="sign-up-submit-btn">
+            <button class="primary-button" type="submit">Continue</button>
+@*             <a href="" class="primary-button" id="sign-up-submit-btn">
                 Continue
-            </a>
+            </a> *@
         </form>
         <p id="verification-notice">
             We will send a verification to your email address
         </p>
     </div>
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
