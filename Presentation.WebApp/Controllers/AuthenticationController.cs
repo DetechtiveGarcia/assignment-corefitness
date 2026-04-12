@@ -16,4 +16,11 @@ public class AuthenticationController : Controller
     {
         return View();
     }
+
+    [HideInMenu]
+    [HttpGet]
+    public IActionResult SignIn()
+    {
+        return View();
+    }
 }

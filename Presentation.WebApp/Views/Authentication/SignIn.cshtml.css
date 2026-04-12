@@ -1,0 +1,61 @@
+﻿#sign-in-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    p {
+        margin: 0;
+    }
+}
+
+.login-provider-icon-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--light-gray-color);
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+}
+
+#sign-in-form {
+    display: flex;
+    flex-direction: column;
+    width: 726px;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 55px;
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 36px 0 0 0;
+    }
+}
+
+#password-label-and-forgot-password {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: var(--primary-color);
+        font-weight: var(--semi-bold);
+        text-decoration: none;
+        font-size: 14px;
+    }
+}
+
+#sign-in-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 85%;
+}
