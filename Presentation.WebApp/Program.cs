@@ -1,12 +1,13 @@
 using Application.Extensions;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Presentation.WebApp.Routing;
-using Presentation.WebApp.Services.MenuNavigation;
 using Infrastructure.Extensions.Identity;
 using Infrastructure.Extensions.Persistence;
+using Infrastructure.Identity;
 using Infrastructure.Persistence.Seeders;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using Presentation.WebApp.Routing;
+using Presentation.WebApp.Services.MenuNavigation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,7 +45,10 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+
     await DataSeeder.SeedRoleAsync(roleManager);
+    await DataSeeder.SeedAdminAsync(userManager);
 }
 
 app.UseExceptionHandler("/error/500");
