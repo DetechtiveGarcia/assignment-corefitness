@@ -65,28 +65,9 @@
         gap: 0.5rem;
     }
 
-        /* labels */
-        #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field label {
-            font-family: "Poppins";
-            font-weight: var(--semi-bold);
-            font-size: 14px;
-        }
 
-        /* inputs */
-        #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field input {
-            border: 0;
-            height: 50px;
-            border-radius: 8px;
-            background-color: var(--light-color);
-            padding: 0 1rem;
-        }
 
-            /* input placeholder */
-            #customer-service-section #contact-us-today-section .contact-us-today-right form .form-field input::placeholder {
-                color: #a7a7a7;
-                font-family: "DM Sans";
-                padding-left: 1rem;
-            }
+
 
     /* submit */
     #customer-service-section #contact-us-today-section .contact-us-today-right form input[type="submit"] {
@@ -161,17 +142,4 @@
 }
 
 /* textarea */
-textarea {
-    border: 0;
-    background-color: var(--light-color);
-    height: 150px;
-    margin-bottom: 4rem;
-    border-radius: 8px;
-}
 
-    /* textarea placeholder */
-    textarea::placeholder {
-        color: #a7a7a7;
-        font-family: "DM Sans";
-        padding: 1rem 1.5rem;
-    }
