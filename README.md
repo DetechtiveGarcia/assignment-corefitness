@@ -32,3 +32,7 @@ The solution follows Clean Architecture:
 3. Run migrations:
    ```bash
    dotnet ef database update
+
+### Admin Credentials
+Email: admin@corefitness.com
+Password: Admin123!
