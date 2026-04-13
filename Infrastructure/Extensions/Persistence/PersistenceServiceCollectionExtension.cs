@@ -23,8 +23,9 @@ public static class PersistenceServiceCollectionExtension
 
         services.AddScoped<IMembershipRepository, MembershipRepository>();
 
-
         services.AddScoped<IFitnessClassRepository, FitnessClassRepository>();
+
+        services.AddScoped<IClassBookingRepository, ClassBookingRepository>();
         return services;
     }
 }

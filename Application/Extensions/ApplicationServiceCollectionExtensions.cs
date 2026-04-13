@@ -1,4 +1,5 @@
 ﻿using Application.Abstractions.Services;
+using Application.Services.ClassBookings;
 using Application.Services.FitnessClasses;
 using Application.Services.Members;
 using Application.Services.Memberships;
@@ -16,6 +17,7 @@ public static class ApplicationServiceCollectionExtensions
         services.AddScoped<IMemberService, MemberService>();
         services.AddScoped<IMembershipService, MembershipService>();
         services.AddScoped<IFitnessClassService, FitnessClassService>();
+        services.AddScoped<IClassBookingService, ClassBookingService>();
         return services;
     }
 }

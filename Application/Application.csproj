@@ -16,4 +16,8 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\ClassBookings\Requests\" />
+  </ItemGroup>
+
 </Project>
