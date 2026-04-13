@@ -16,7 +16,14 @@ public static class PersistenceServiceCollectionExtension
     {
         services.AddDbContext<PersistenceContext>(options =>
         {
-            options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
+            if (host.IsDevelopment())
+            {
+                options.UseInMemoryDatabase("CoreFitnessDevDb");
+            }
+            else
+            {
+                options.UseSqlServer(configuration.GetConnectionString("SqlConnection"));
+            }
         });
 
         services.AddScoped<IMemberRepository, MemberRepository>();
