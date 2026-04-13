@@ -18,7 +18,7 @@ builder.Services.AddControllersWithViews(options =>
 
 builder.Services.AddApplication(builder.Configuration, builder.Environment);
 builder.Services.AddPersistence(builder.Configuration, builder.Environment);
-builder.Services.AddIdentityService();
+builder.Services.AddIdentityService(builder.Configuration);
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

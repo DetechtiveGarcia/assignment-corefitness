@@ -1,6 +1,4 @@
 ﻿using Application.Abstractions.Persistence;
-using Application.Abstractions.Services;
-using Application.Services.Memberships;
 using Infrastructure.Persistence.Contexts;
 using Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
