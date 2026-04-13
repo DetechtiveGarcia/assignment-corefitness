@@ -150,7 +150,7 @@ header {
     &::after {
         content: "\f054";
         margin-left: 1rem;
-        font-family: "Font Awesome 7 Pro";
+        font-family: "Font Awesome";
         font-weight: 900;
     }
 }
@@ -197,8 +197,8 @@ header {
 }
 
 .primary-button:hover {
-    background-color: var(--primary-button-offset-hover-bg-color);
-    color: var(--primary-button-offset-hover-text-color);
+    background-color: var(--primary-button-hover-offset-bg-color);
+    color: var(--primary-button-hover-offset-text-color);
 }
 
 
@@ -238,7 +238,7 @@ footer {
 
                 &::after {
                     content: "\f13a";
-                    font-family: "Font Awesome 7 Pro";
+                    font-family: "Font Awesome";
                     margin-right: 1rem;
                     color: var(--primary-color);
                     background: var(--dark-color);
@@ -247,4 +247,38 @@ footer {
             }
         }
     }
+}
+
+.form-field label {
+    font-family: "Poppins";
+    font-weight: var(--semi-bold);
+    font-size: 14px;
+}
+
+.form-field input {
+    border: 0;
+    height: 50px;
+    border-radius: 8px;
+    background-color: var(--light-color);
+    padding: 0 1rem;
+}
+
+.form-field input::placeholder {
+    color: #a7a7a7;
+    font-family: "DM Sans";
+}
+
+textarea {
+    border: 0;
+    background-color: var(--light-color);
+    height: 150px;
+    margin-bottom: 4rem;
+    border-radius: 8px;
+}
+
+/* textarea placeholder */
+textarea::placeholder {
+    color: #a7a7a7;
+    font-family: "DM Sans";
+    padding: 1rem 1.5rem;
 }
