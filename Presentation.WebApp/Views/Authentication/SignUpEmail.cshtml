@@ -13,26 +13,39 @@
             structure and support built into your account.
         </p>
         <hr />
+
         <div id="external-login-providers">
-            <div class="login-provider-icon-border">
-                <img src="~/images/google-icon.svg" alt="" />
-            </div>
-            <div class="login-provider-icon-border">
-                <img src="~/images/github-icon.svg" alt="" />
-            </div>
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="Google" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/google-icon.svg" alt="Sign up with Google" />
+                </button>
+            </form>
+
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="GitHub" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/github-icon.svg" alt="Sign up with GitHub" />
+                </button>
+            </form>
         </div>
 
         <p id="break-line-with-text">OR CONTINUE WITH</p>
 
         <form method="post" asp-action="SignUpEmail" asp-controller="Authentication">
             @Html.AntiForgeryToken()
+
             @if (TempData["ErrorMessage"] is string errorMessage)
             {
                 <div class="form-field-validation">
                     @errorMessage
                 </div>
             }
+
             <div asp-validation-summary="ModelOnly"></div>
+
             <div class="form-fields">
                 <div class="form-field">
                     <label asp-for="Email"></label>
@@ -40,11 +53,10 @@
                     <span class="form-field-validation" asp-validation-for="Email"></span>
                 </div>
             </div>
+
             <button class="primary-button" type="submit">Continue</button>
-@*             <a href="" class="primary-button" id="sign-up-submit-btn">
-                Continue
-            </a> *@
         </form>
+
         <p id="verification-notice">
             We will send a verification to your email address
         </p>
