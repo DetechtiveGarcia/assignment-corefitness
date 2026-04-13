@@ -1,4 +1,4 @@
-﻿@model Presentation.WebApp.Models.ViewModels.FitnessClasses.FitnessClassesViewModel
+﻿@model Presentation.WebApp.Models.ViewModels.FitnessClasses.FitnessClassesPageViewModel
 
 @{
     ViewData["Title"] = "Classes";
@@ -12,6 +12,11 @@
         <div class="form-success-message">@successMessage</div>
     }
 
+    @if (TempData["ErrorMessage"] is string errorMessage)
+    {
+        <div class="form-field-validation">@errorMessage</div>
+    }
+
     <div asp-validation-summary="ModelOnly"></div>
 
     <section id="classes-list">
@@ -19,6 +24,8 @@
         {
             @foreach (var item in Model.Classes)
             {
+                var isBooked = Model.MyBookings.Any(x => x.FitnessClassId == item.Id);
+
                 <div class="class-card">
                     <h3>@item.Title</h3>
                     <p>@item.Description</p>
@@ -26,15 +33,36 @@
                     <p><strong>Category:</strong> @item.Category</p>
                     <p><strong>Start:</strong> @item.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
                     <p><strong>End:</strong> @item.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
+
+                    @if (User.Identity?.IsAuthenticated == true && !User.IsInRole("Admin"))
+                    {
+                        @if (isBooked)
+                        {
+                            <form method="post" asp-action="CancelBooking" asp-controller="Classes">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="danger-button">Cancel Booking</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form method="post" asp-action="Book" asp-controller="Classes">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="primary-button">Book Class</button>
+                            </form>
+                        }
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <form method="post" asp-action="Delete" asp-controller="Classes">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="danger-button">Delete</button>
+                        </form>
+                    }
                 </div>
-                @if (User.IsInRole("Admin"))
-                {
-                    <form method="post" asp-action="Delete" asp-controller="Classes">
-                        @Html.AntiForgeryToken()
-                        <input type="hidden" name="id" value="@item.Id" />
-                        <button type="submit" class="danger-button">Delete</button>
-                    </form>
-                }
             }
         }
         else
