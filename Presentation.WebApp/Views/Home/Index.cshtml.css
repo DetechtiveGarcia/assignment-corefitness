@@ -37,7 +37,7 @@
     }
 
     h2 {
-        padding-top: 1rem;
+        padding-top: .5rem;
         font-family: "Poppins";
         font-size: 48px;
         margin: 0;
@@ -50,7 +50,7 @@
 
     #about-us-paragraph-2 {
         padding: 3rem;
-        background-color: var(--about-us-paragraph2-bg-color);
+        background-color: var(--white-color);
         border-radius: 20px;
         font-weight: bold;
     }
