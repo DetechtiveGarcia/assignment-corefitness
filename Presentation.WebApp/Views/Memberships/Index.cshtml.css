@@ -1,8 +1,5 @@
 ﻿#our-memberships-offers-section {
-    .memberships-title {
-        text-align: center;
-        margin: 3rem 0;
-    }
+
 
     #offers-grid {
         display: flex;
