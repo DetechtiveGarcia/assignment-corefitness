@@ -48,11 +48,18 @@
         padding: 1rem 0;
     }
 
-    #about-us-paragraph-2 {
+
+
+    #about-us-paragraph-2-section {
+        position: relative;
         padding: 3rem;
         background-color: var(--white-color);
         border-radius: 20px;
         font-weight: bold;
+        background-image: url("/images/home/icon-about-body-quote-prime 1.png");
+        background-repeat: no-repeat;
+        background-position: right 2rem bottom 3rem;
+        background-size: 120px; /* adjust */
     }
 }
 
