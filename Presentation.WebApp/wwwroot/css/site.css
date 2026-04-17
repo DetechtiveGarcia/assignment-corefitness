@@ -282,3 +282,8 @@ textarea::placeholder {
     font-family: "DM Sans";
     padding: 1rem 1.5rem;
 }
+
+.page-title {
+    text-align: center;
+    margin: 3rem 0;
+}
