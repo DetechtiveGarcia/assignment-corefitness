@@ -1,0 +1,84 @@
+﻿@model SignInForm
+
+@{
+    ViewData["Title"] = "Sign In";
+    Layout = "Layouts/_AuthenticationLayout";
+}
+<section id="sign-in-page">
+    <div id="sign-in-form">
+        <h1 class="title">Welcome Back!</h1>
+        <p>
+            Log in to continue your fitness journey with full access to your
+            customized program, training history, and progress tracking. Stay
+            consistent, monitor your development, and keep moving forward with the
+            structure and support built into your account.
+        </p>
+        <hr />
+
+        <div id="external-login-providers">
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="Google" />
+                <input type="hidden" name="returnUrl" value="@ViewBag?.ReturnUrl" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/google-icon.svg" alt="Sign in with Google" />
+                </button>
+            </form>
+
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="GitHub" />
+                <input type="hidden" name="returnUrl" value="@ViewBag?.ReturnUrl" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/github-icon.svg" alt="Sign in with GitHub" />
+                </button>
+            </form>
+        </div>
+
+        <p id="break-line-with-text">OR CONTINUE WITH</p>
+
+        <form method="post" asp-action="SignIn" asp-controller="Authentication">
+            @Html.AntiForgeryToken()
+
+            @if (TempData["ErrorMessage"] is string errorMessage)
+            {
+                <div class="form-field-validation">
+                    @errorMessage
+                </div>
+            }
+
+            <div asp-validation-summary="ModelOnly"></div>
+            <input type="hidden" name="returnUrl" value="@ViewBag?.ReturnUrl" />
+
+            <div class="form-fields">
+                <div class="form-field">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" />
+                    <span class="form-field-validation" asp-validation-for="Email"></span>
+                </div>
+
+                <div class="form-field">
+                    <div id="password-label-and-forgot-password">
+                        <label asp-for="Password"></label>
+                        <a href="">Forgot Password?</a>
+                    </div>
+                    <input type="password" asp-for="Password" />
+                    <span class="form-field-validation" asp-validation-for="Password"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="primary-button">Continue</button>
+
+            <div id="accept-utac-section">
+                <input type="checkbox" asp-for="RememberMe" />
+                <label asp-for="RememberMe">
+                    Remember me
+                </label>
+            </div>
+        </form>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

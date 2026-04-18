@@ -1,0 +1,173 @@
+﻿@model UpdateProfileForm
+@{
+    ViewData["Title"] = "My Account";
+}
+<h1 class="page-title">My Account</h1>
+<section id="my-account-section">
+    <aside>
+        @if (!string.IsNullOrWhiteSpace(Model.ExistingProfileImageUrl))
+        {
+            <img src="@Model.ExistingProfileImageUrl" alt="Profile image" />
+        }
+        else
+        {
+            <img src="~/images/account/trainer-1 1.png" alt="" />
+        }
+        <div id="my-menu-options">
+            @if (ViewBag.Membership is Application.Dtos.Memberships.MembershipDetails membership)
+            {
+                <div id="my-membership-card">
+                    <p class="membership-card-title">My Membership</p>
+                    <p><strong>Plan:</strong> @membership.MembershipName</p>
+                    <p><strong>Start Date:</strong> @membership.StartDate.ToString("yyyy-MM-dd")</p>
+                    <p><strong>End Date:</strong> @membership.EndDate.ToString("yyyy-MM-dd")</p>
+                    <p>
+                        <strong>Status:</strong>
+                        @(membership.EndDate >= DateTime.UtcNow ? "Active" : "Expired")
+                    </p>
+                </div>
+            }
+            else
+            {
+                <div id="my-membership-card">
+                    <p class="membership-card-title">My Membership</p>
+                    <p>No membership selected yet.</p>
+                    <a asp-controller="Memberships" asp-action="Index" class="primary-button">Choose Membership</a>
+                </div>
+            }
+            <p id="menu-title">Menu options</p>
+            <ul>
+                <li>
+                    <p>About me</p>
+                    <hr />
+                </li>
+                <li>
+                    <p>My memberships</p>
+                    <hr />
+                </li>
+                <li>
+                    <a asp-controller="Bookings" asp-action="Index">My Bookings</a>
+                    <hr />
+                </li>
+                <li>
+                    <form method="post" asp-controller="Authentication" asp-action="LogOut">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="menu-link-button">Sign Out</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+        <form method="post" asp-action="DeleteAccount" id="cancel-section">
+            @Html.AntiForgeryToken()
+            <p>if you like to cancel your account, click below</p>
+            <button type="submit" class="danger-button">
+                Delete account
+            </button>
+        </form>
+ 
+    </aside>
+    <div id="about-me-section">
+        @if (TempData["SuccessMessage"] is string successMessage)
+        {
+            <div class="form-success-message">
+                @successMessage
+            </div>
+        }
+
+        @if (TempData["ErrorMessage"] is string errorMessage)
+        {
+            <div class="form-field-validation">
+                @errorMessage
+            </div>
+        }
+        <form method="post" asp-action="Me" asp-controller="Account" enctype="multipart/form-data" novalidate>
+            @Html.AntiForgeryToken()
+
+            <p class="form-title">About Me</p>
+            <hr />
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-fields">
+                <div class="form-field">
+                    <label asp-for="FirstName"></label>
+                    <input type="text" asp-for="FirstName" />
+                    <span class="form-field-validation" asp-validation-for="FirstName"></span>
+                </div>
+
+                <div class="form-field">
+                    <label asp-for="LastName"></label>
+                    <input type="text" asp-for="LastName" />
+                    <span class="form-field-validation" asp-validation-for="LastName"></span>
+                </div>
+
+                <div class="form-field">
+                    <label>Email</label>
+                    <input type="text" value="@ViewBag.Email" disabled />
+                </div>
+
+                <div class="form-field">
+                    <label asp-for="PhoneNumber"></label>
+                    <input type="text" asp-for="PhoneNumber" />
+                    <span class="form-field-validation" asp-validation-for="PhoneNumber"></span>
+                </div>
+
+                <div class="form-field">
+                    <label asp-for="ProfileImage"></label>
+                    <div class="file-input-wrapper">
+                        <span class="file-input-text" id="file-input-label">
+                            @(string.IsNullOrWhiteSpace(Model.ExistingProfileImageUrl) ? "Upload Profile Image" : "Current image selected")
+                        </span>
+
+                        <input asp-for="ProfileImage" type="file" hidden onchange="updateFileName(this)" />
+
+                        <button type="button" onclick="document.getElementById('ProfileImage').click()">
+                            Browse
+                        </button>
+                    </div>
+
+                    <span class="form-field-validation" asp-validation-for="ProfileImage"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="primary-button">Save</button>
+        </form>
+
+        <section id="my-statistics-section">
+            <p class="my-statistics-title">My Statistics</p>
+            <div id="progress-stats">
+                <div class="progress-stat">
+                    <p>Check-In (last 30 days)</p>
+                    <p>25</p>
+                </div>
+                <div class="progress-stat">
+                    <p>Weight Goal</p>
+                    <p>50%</p>
+                </div>
+                <div class="progress-stat">
+                    <p>Current BMI</p>
+                    <p>27</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function updateFileName(input) {
+            const label = document.getElementById('file-input-label');
+
+            if (!label) return;
+
+            if (input.files && input.files.length > 0) {
+                label.textContent = input.files[0].name;
+            } else {
+                label.textContent = 'Upload Profile Image';
+            }
+        }
+    </script>
+}

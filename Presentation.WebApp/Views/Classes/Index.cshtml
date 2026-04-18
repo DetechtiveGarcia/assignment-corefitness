@@ -1,0 +1,128 @@
+﻿@model Presentation.WebApp.Models.ViewModels.FitnessClasses.FitnessClassesPageViewModel
+
+@{
+    ViewData["Title"] = "Classes";
+}
+
+<section id="classes-page">
+    <h1 class="page-title">Available Classes</h1>
+
+    @if (TempData["SuccessMessage"] is string successMessage)
+    {
+        <div class="form-success-message">@successMessage</div>
+    }
+
+    @if (TempData["ErrorMessage"] is string errorMessage)
+    {
+        <div class="form-field-validation">@errorMessage</div>
+    }
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <section id="classes-list">
+        @if (Model.Classes.Any())
+        {
+            @foreach (var item in Model.Classes)
+            {
+                var isBooked = Model.MyBookings.Any(x => x.FitnessClassId == item.Id);
+
+                <div class="class-card">
+                    <h3>@item.Title</h3>
+                    <p>@item.Description</p>
+                    <p><strong>Instructor:</strong> @item.InstructorName</p>
+                    <p><strong>Category:</strong> @item.Category</p>
+                    <p><strong>Start:</strong> @item.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
+                    <p><strong>End:</strong> @item.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
+
+                    @if (User.Identity?.IsAuthenticated == true && !User.IsInRole("Admin"))
+                    {
+                        @if (isBooked)
+                        {
+                            <form method="post" asp-action="CancelBooking" asp-controller="Classes">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="danger-button">Cancel Booking</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form method="post" asp-action="Book" asp-controller="Classes">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="primary-button">Book Class</button>
+                            </form>
+                        }
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <form method="post" asp-action="Delete" asp-controller="Classes">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="danger-button">Delete</button>
+                        </form>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <p>No classes available yet.</p>
+        }
+    </section>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <section id="create-class-section">
+            <h2>Add Class</h2>
+
+            <form method="post" asp-action="Create" asp-controller="Classes">
+                @Html.AntiForgeryToken()
+
+                <div class="form-fields">
+                    <div class="form-field">
+                        <label asp-for="Form.Title"></label>
+                        <input asp-for="Form.Title" />
+                        <span asp-validation-for="Form.Title"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Form.Description"></label>
+                        <input asp-for="Form.Description" />
+                        <span asp-validation-for="Form.Description"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Form.InstructorName"></label>
+                        <input asp-for="Form.InstructorName" />
+                        <span asp-validation-for="Form.InstructorName"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Form.Category"></label>
+                        <input asp-for="Form.Category" />
+                        <span asp-validation-for="Form.Category"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Form.StartTime"></label>
+                        <input asp-for="Form.StartTime" type="datetime-local" />
+                        <span asp-validation-for="Form.StartTime"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label asp-for="Form.EndTime"></label>
+                        <input asp-for="Form.EndTime" type="datetime-local" />
+                        <span asp-validation-for="Form.EndTime"></span>
+                    </div>
+                </div>
+
+                <button type="submit" class="primary-button">Create Class</button>
+            </form>
+        </section>
+    }
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,69 @@
+﻿@model SignUpEmailForm
+@{
+    ViewData["Title"] = "Become a member";
+    Layout = "Layouts/_AuthenticationLayout";
+}
+
+<section id="sign-up-page">
+    <div id="sign-up-form">
+        <h1 class="title">Become a Member</h1>
+        <p>
+            Sign up to continue your fitness journey with full access to your
+            customized program, training history, and progress tracking. Stay
+            consistent, monitor your development, and keep moving forward with the
+            structure and support built into your account.
+        </p>
+        <hr />
+
+        <div id="external-login-providers">
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="Google" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/google-icon.svg" alt="Sign up with Google" />
+                </button>
+            </form>
+
+            <form method="post" asp-action="ExternalLogin" asp-controller="Authentication">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="provider" value="GitHub" />
+                <button type="submit" class="login-provider-icon-border">
+                    <img src="~/images/github-icon.svg" alt="Sign up with GitHub" />
+                </button>
+            </form>
+        </div>
+
+        <p id="break-line-with-text">OR CONTINUE WITH</p>
+
+        <form method="post" asp-action="SignUpEmail" asp-controller="Authentication">
+            @Html.AntiForgeryToken()
+
+            @if (TempData["ErrorMessage"] is string errorMessage)
+            {
+                <div class="form-field-validation">
+                    @errorMessage
+                </div>
+            }
+
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <div class="form-fields">
+                <div class="form-field">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" />
+                    <span class="form-field-validation" asp-validation-for="Email"></span>
+                </div>
+            </div>
+
+            <button class="primary-button" type="submit">Continue</button>
+        </form>
+
+        <p id="verification-notice">
+            We will send a verification to your email address
+        </p>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

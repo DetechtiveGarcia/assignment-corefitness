@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Application.Dtos.ClassBookings.ClassBookingDetails>
+
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<section id="my-bookings-page">
+    <h1 class="page-title">My Bookings</h1>
+
+    @if (TempData["ErrorMessage"] is string errorMessage)
+    {
+        <div class="form-field-validation">@errorMessage</div>
+    }
+
+    @if (Model.Any())
+    {
+        <div class="bookings-list">
+            @foreach (var booking in Model)
+            {
+                <div class="class-card">
+                    <h3>@booking.Title</h3>
+                    <p>@booking.Description</p>
+                    <p><strong>Instructor:</strong> @booking.InstructorName</p>
+                    <p><strong>Category:</strong> @booking.Category</p>
+                    <p><strong>Start:</strong> @booking.StartTime.ToString("yyyy-MM-dd HH:mm")</p>
+                    <p><strong>End:</strong> @booking.EndTime.ToString("yyyy-MM-dd HH:mm")</p>
+                    <p><strong>Booked At:</strong> @booking.BookedAt.ToString("yyyy-MM-dd HH:mm")</p>
+
+                    <form method="post" asp-action="CancelBooking" asp-controller="Classes">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@booking.FitnessClassId" />
+                        <button type="submit" class="danger-button">Cancel Booking</button>
+                    </form>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>You have no bookings yet.</p>
+    }
+</section>

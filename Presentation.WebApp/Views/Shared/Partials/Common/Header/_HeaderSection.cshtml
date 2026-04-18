@@ -1,0 +1,25 @@
+﻿<section class="header-section">
+    <div class="logotype">
+        <a class="logotype-link" href="/">
+            <img src="~/images/logotype.svg" alt="CoreFitness Group">
+        </a>
+    </div>
+
+        <partial name="Partials/Common/MenuNavigation/_Desktop" />
+
+        <nav class="account-menu menu">
+        @if(User.Identity?.IsAuthenticated == true)
+        {
+                <a class="signup menu-item" asp-controller="Classes" asp-action="Index">Our classes</a>
+                @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
+                <a class="primary-button offset" asp-controller="Account" asp-action="Me">My Account</a>
+        }
+        else
+        {
+                <a class="signup menu-item" asp-controller="Authentication" asp-action="SignUpEmail">Become Member</a>
+                @* <a class="primary-button offset" asp-controller="Account" asp-action="Index">My Account</a> *@
+                <a class="primary-button offset" asp-controller="Authentication" asp-action="SignIn">Sign In</a>
+        }
+       
+        </nav>
+</section>  

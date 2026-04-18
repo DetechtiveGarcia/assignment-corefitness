@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "Memberships";
+}
+
+
+<section id="our-memberships-offers-section">
+    <h1 class="page-title">Our Memberships Offers</h1>
+    <div id="offers-grid">
+        <div class="offer-card">
+            <div class="upper-card-section">
+                <div class="icon-bg dumb-bell"></div>
+                <p class="offer-title">Standard Membership</p>
+                <p class="offer-description">
+                    With the Standard Membership, get access to our full range of
+                    gym facilities.
+                </p>
+                <div class="bullet-grid">
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>Standard Locker
+                    </p>
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>High-energy group
+                        fitness classes
+                    </p>
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Motivating & supportive environment
+                    </p>
+                </div>
+            </div>
+            <div class="lower-card-section">
+                <div class="join-now-card">
+                    <div class="upper-section">
+                        <div class="left-section">
+                            <div class="price-information">
+                                <p class="membership-price">
+                                    495.00
+                                    <span>/monthly</span>
+                                </p>
+                            </div>
+                            <p>* Monthly 20 Classes</p>
+                        </div>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <form method="post" asp-action="Index" asp-controller="Memberships">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="MembershipName" value="Standard" />
+                                <button type="submit" class="primary-button">Join Now</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <a asp-controller="Authentication" asp-action="SignUpEmail" class="primary-button">Join Now</a>
+                        }
+                    </div>
+                    <div class="lower-section">
+                        <p>Try Any Membership Free for 1 Week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offer-card">
+            <div class="upper-card-section">
+                <div class="icon-bg dumb-bell"></div>
+                <p class="offer-title">Premium Membership</p>
+                <p class="offer-description">
+                    With the Premium Membership, get access to our full range of gym
+                    facilities.
+                </p>
+                <div class="bullet-grid">
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>Priority Support &
+                        Premium Locker
+                    </p>
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>High-energy group
+                        fitness classes
+                    </p>
+                    <p class="bullet-point">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Motivating & supportive environment
+                    </p>
+                </div>
+            </div>
+
+            <div class="lower-card-section">
+                <div class="join-now-card">
+                    <div class="upper-section">
+                        <div class="left-section">
+                            <div class="price-information">
+                                <p class="membership-price">
+                                    595.00
+                                    <span>/monthly</span>
+                                </p>
+                            </div>
+                            <p>* Monthly 20 Classes</p>
+                        </div>
+                        <div class="right-section">
+                            @if (User.Identity?.IsAuthenticated == true)
+                            {
+                                <form method="post" asp-action="Index" asp-controller="Memberships">
+                                    @Html.AntiForgeryToken()
+                                    <input type="hidden" name="MembershipName" value="Premium" />
+                                    <button type="submit" class="primary-button">Join Now</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <a asp-controller="Authentication" asp-action="SignUpEmail" class="primary-button">Join Now</a>
+                            }
+                        </div>
+                    </div>
+                    <div class="lower-section">
+                        <p>Try Any Membership Free for 1 Week</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="call-us-card">
+            <p class="title">Get Your Membership</p>
+            <p class="call-us-description">
+                Our memberships give you access to all equipment, personalized
+                training.
+            </p>
+            <p class="call-us-number">Call Us At: +(46) 8 410 521 00</p>
+            <a href="#" class="primary-button">
+                Call us Today!
+            </a>
+
+            <img src="/images/memberships/our-pricing-cta-image 1.png" alt="" id="call-us-img" />
+        </div>
+    </div>
+</section>
+<section id="good-things-grid">
+    <div class="good-thing">
+        <i class="fa-regular fa-calendar-check"></i>
+        <p>Get 30 day free trial</p>
+    </div>
+    <div class="good-thing">
+        <i class="fa-regular fa-calendar-check"></i>
+        <p>No any hidden fees pay</p>
+    </div>
+    <div class="good-thing">
+        <i class="fa-regular fa-calendar-check"></i>
+        <p>You can cancel anytime</p>
+    </div>
+</section>
+<section id="faq-section">
+    <div id="faq-section-left">
+        <img src="/images/memberships/faqs-image 1.png" alt="" class="section-side-img" />
+    </div>
+    <div id="faq-section-right">
+        <div class="section-title">
+            <img src="~/images/section-title-bullet.svg" alt="" />
+            <span>Frequently Asked Questions</span>
+        </div>
+        <p class="title faq-title">
+            Common questions about gym and training
+        </p>
+        <div id="questions">
+            <div class="qa">
+                <p class="question">
+                    Q1. Do I need prior gym experience to Join CoreFitness?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q2. What facilities are included with the membership?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q3. Can I try them gym before taking a membership?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q4. Are there group workout programs available?
+                </p>
+                <p class="answer"></p>
+            </div>
+            <div class="qa">
+                <p class="question">
+                    Q5. Is nutrition guidance included in the plans?
+                </p>
+                <p class="answer"></p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,52 @@
+﻿#hero-header-upper-divider{
+    margin-top: 1rem;
+}
+
+#hero-header-lower-divider{
+    margin-bottom: 4rem;
+}
+.hero-section {
+    /*height: 850px;*/
+
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .column-right {
+        margin-top: 5rem;
+    }
+
+    .column-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 4rem;
+        width: 623px;
+        h2 {
+            font-weight: bold;
+            font-size: 3.375rem;
+            margin: 1rem 0 0 0;
+        }
+
+        p {
+            font-weight: var(--semi-bold);
+        }
+    }
+
+    #bullet-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 2rem;
+    }
+
+    .bullet-grid-point {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+

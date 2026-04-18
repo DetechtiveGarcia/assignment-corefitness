@@ -1,0 +1,88 @@
+﻿:root {
+    /* fonts */
+    --font-default: "DM Sans", sans-serif;
+    --font-heading: "Poppins", sans-serif;
+    --title-font: "Poppins", sans-serif;
+    --font-fa: "Font Awesome";
+    /* colors */
+    --theme-color: #d7eb31;
+    --dark-color: #27252f;
+    --gray-color: #6f6f6f;
+    --light-gray-color: #cecece;
+    --lightgray-color: #A7A7A7;
+    --extra-light-gray-color: #e6e6e6;
+    --light-color: #f7f7f7;
+    --white-color: #ffffff;
+    --danger-color: #ce2b2baf;
+    --primary-color: #d6eb31;
+    --error-color: #AB281F;
+    --dark-color-t: #27252f4d;
+    --dark-color-t2: rgba(64,64,64,0.75);
+    /*elements*/
+
+    --default-bg-color: var(--light-color);
+    --default-text-color: var(--dark-color);
+    --header-bg-color: var(--dark-color);
+    --header-text-color: var(--white-color);
+    --footer-bg-color: var(--dark-color);
+    --footer-text-color: var(--white-color);
+    --equipment-bg-color: var(--primary-color);
+    --equipment-text-color: var(--dark-color);
+    --menu-item-text-color: var(--white-color);
+    --menu-item-hover-text-color: var(--primary-color);
+    --menu-dropdown-item-bg-color: var(--primary-color);
+    --menu-dropdown-item-text-color: var(--dark-color);
+    --menu-dropdown-item-hover-bg-color: var(--dark-color-t);
+    --menu-dropdown-item-hover-text-color: var(--white-color);
+    --primary-button-bg-color: var(--primary-color);
+    --primary-button-text-color: var(--dark-color);
+    --primary-button-hover-bg-color: var(--dark-color);
+    --primary-button-hover-text-color: var(--white-color);
+    --primary-button-hover-offset-bg-color: var(--white-color);
+    --primary-button-hover-offset-text-color: var(--dark-color);
+    --menu-button-bg-color: var(--dark-color);
+    --menu-button-text-color: var(--white-color);
+    --menu-button-hover-bg-color: var(--dark-color);
+    --menu-button-hover-text-color: var(--white-color);
+    --menu-button-hover-offset-bg-color: var(--dark-color);
+    --menu-button-hover-offset-text-color: var(--primary-color);
+    --section-bg-color: var(--white-color);
+    --section-title-bg-color: var(--dark-color);
+    --section-title-text-color: var(--white-color);
+    --section-title-dot-color: var(--primary-color);
+    --section-title-offset-bg-color: var(--white-color);
+    --section-title-offset-text-color: var(--dark-color);
+    --section-title-offset-dot-color: var(--dark-color);
+    --section-title-primary-bg-color: var(--primary-color);
+    --section-title-primary-text-color: var(--dark-color);
+    --section-title-primary-dot-color: var(--dark-color);
+    --border-color: var(--gray-color);
+    --border-primary-color: var(--primary-color);
+    --grid-checklist-icon-color: var(--primary-color);
+    --quote-bg-color: var(--white-color);
+    --quote-text-color: var(--dark-color);
+    --shadow-dropdown: 0 10px 30px rgba(0, 0, 0, 0.18);
+    --aboutus-description-text-color: var(--gray-color);
+    --programs-bg-color: var(--white-color);
+    --programs-text-color: var(--dark-color);
+    --programs-link-color: var(--dark-color);
+    --contact-bg-color: var(--white-color);
+    --contact-text-color: var(--dark-color);
+    --contact-description-text-color: var(--gray-color);
+    --form-label-text-color: var(--dark-color);
+    --form-input-bg-color: var(--light-color);
+    --form-input-border-color: var(--light-color);
+    --form-input-error-bg-color: var(--light-color);
+    --form-input-error-border-color: var(--light-color);
+    --form-input-error-text-color: var(--dark-color);
+    --form-error-text-color: var(--error-color);
+    --form-placeholder-text-color: var(--lightgray-color);
+    --contact-info-bg-color: var(--dark-color-t2);
+    --contact-info-icon-bg-color: var(--primary-color);
+    --contact-info-icon-text-color: var(--dark-color);
+    /*border radiuses*/
+    --usual-border-radius: 20px;
+    /*font weights*/
+    --semi-bold: 600;
+    --app-bg-color: var(--light-color)
+}

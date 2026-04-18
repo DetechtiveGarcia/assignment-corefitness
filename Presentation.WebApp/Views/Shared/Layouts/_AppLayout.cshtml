@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CoreFitness</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/css/fonts.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Presentation.WebApp.styles.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/55d9285a26.js"></script>
+
+</head>
+<body>
+   <div class="container">
+       <div class="app-layout">
+           <header>
+      
+                 <partial name="Partials/Common/Header/_HeaderSection" /> 
+                @if (IsSectionDefined("Hero"))
+                {
+                    @RenderSection("Hero", required: false)
+                }
+
+           </header>
+           <main>
+
+             @RenderBody()
+           </main>
+
+    <footer>
+        <partial name="Partials/Common/Footer/_FooterSection" />
+    </footer>
+       </div>
+   </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

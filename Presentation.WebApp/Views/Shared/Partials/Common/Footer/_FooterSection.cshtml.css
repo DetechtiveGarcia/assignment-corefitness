@@ -1,0 +1,69 @@
+﻿#footer-upper-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    #footer-upper-section-right {
+        text-align: right;
+        font-weight: 500;
+        font-size: 28px;
+    }
+}
+
+#footer-middle-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+
+    #footer-middle-section-left {
+        max-width: 372px;
+
+        #our-location-title {
+            font-weight: var(--semi-bold);
+            margin-bottom: 1rem;
+        }
+
+        #footer-address {
+            font-size: 14px;
+            margin: .5rem 0 0;
+        }
+
+        #location-info{
+            margin-bottom: 1rem;
+        }
+    }
+
+    #footer-middle-section-right {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        text-align: right;
+
+        #working-hours-title {
+            font-weight: var(--semi-bold);
+            text-align: right;
+        }
+
+        #working-hours-section {
+            #working-hours {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 1.75rem;
+            }
+        }
+
+        #opening-hours-section {
+            #opening-hours-title {
+                margin-bottom: 1.5rem;
+                font-weight: var(--semi-bold);
+            }
+        }
+    }
+}
+
+#footer-lower-section {
+    text-align: center;
+    padding: 2.5rem 0;
+}
