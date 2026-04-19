@@ -287,3 +287,11 @@ textarea::placeholder {
     text-align: center;
     margin: 3rem 0;
 }
+
+input[type="text"]{
+    width: 100%;
+}
+
+input[type="password"] {
+    width: 100%;
+}
