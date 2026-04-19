@@ -34,8 +34,9 @@
                 </button>
             </form>
         </div>
-
-        <p id="break-line-with-text">OR CONTINUE WITH</p>
+        <div id="break-line-with-text">
+            <p>OR CONTINUE WITH</p>
+        </div>
 
         <form method="post" asp-action="SignIn" asp-controller="Authentication">
             @Html.AntiForgeryToken()
