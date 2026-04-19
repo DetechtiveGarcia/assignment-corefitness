@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Dtos\ClassBookings\Requests\" />
+    <Folder Include="Dtos\Memberships\Results\" />
   </ItemGroup>
 
 </Project>

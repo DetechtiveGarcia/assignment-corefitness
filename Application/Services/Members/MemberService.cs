@@ -8,7 +8,7 @@ using Domain.Entities;
 
 namespace Application.Services.Members;
 
-public class MemberService(IIdentityService identityService, IMemberRepository repo) : IMemberService
+public class MemberService(IIdentityService identityService, IMemberRepository memberRepo) : IMemberService
 {
     public async Task<MemberResult> CreateMemberAsync(RegisterMemberRequest request, CancellationToken ct = default)
     {
@@ -37,7 +37,7 @@ public class MemberService(IIdentityService identityService, IMemberRepository r
         }
         var member = Member.Create(registerResult.UserId);
 
-        await repo.AddAsync(member, ct);
+        await memberRepo.AddAsync(member, ct);
 
         return new MemberResult(true, [], member.Id, member.UserId);
 
@@ -49,7 +49,7 @@ public class MemberService(IIdentityService identityService, IMemberRepository r
         if (request is null)
             return new MemberResult(false, ["request model must be provided"]);
 
-        var member = await repo.GetAsync(x => x.Id == request.Id, ct);
+        var member = await memberRepo.GetAsync(x => x.Id == request.Id, ct);
         if (member is null)
             return new MemberResult(false, ["Id is missing"]);
 
@@ -59,7 +59,7 @@ public class MemberService(IIdentityService identityService, IMemberRepository r
 
         member.UpdateProfileInformation(request.FirstName, request.LastName, request.ProfileImageUrl);
 
-        var memberUpdated = await repo.UpdateAsync(member, ct);
+        var memberUpdated = await memberRepo.UpdateAsync(member, ct);
         if (!memberUpdated)
             return new MemberResult(false, ["Unable to update account"]);
 
@@ -77,7 +77,7 @@ public class MemberService(IIdentityService identityService, IMemberRepository r
         if (string.IsNullOrWhiteSpace(userId))
             return new MemberDetailsResult(false, ["Id is missing"]);
 
-        var member = await repo.GetAsync(x => x.UserId == userId, ct);
+        var member = await memberRepo.GetAsync(x => x.UserId == userId, ct);
         if (member is null)
             return new MemberDetailsResult(false, ["Id is missing"]);
         if (member.UserId is null)
@@ -93,31 +93,40 @@ public class MemberService(IIdentityService identityService, IMemberRepository r
 
     public async Task<MemberResult> DeleteMemberAsync(string userId, CancellationToken ct = default)
     {
-        var errors = new List<string>();
-
         if (string.IsNullOrWhiteSpace(userId))
-        {
-            errors.Add("User Id is missing");
-            return new MemberResult(false, errors);
-        }
-        var member = await repo.GetAsync(x => x.UserId == userId, ct);
+            return new MemberResult(false, ["User Id is missing"]);
+
+        var member = await memberRepo.GetAsync(x => x.UserId == userId, ct);
+
         if (member is null)
+            return new MemberResult(false, ["Member not found"]);
+
+        try
         {
-            errors.Add("Member not found");
-            return new MemberResult(false, errors);
-        }
+            // 🖼️ Delete profile image
+            if (!string.IsNullOrWhiteSpace(member.ProfileImageUrl))
+            {
+                var path = Path.Combine("wwwroot", member.ProfileImageUrl.TrimStart('/'));
 
-        if (member.UserId is null)
+                if (File.Exists(path))
+                    File.Delete(path);
+            }
+
+            // 👤 Delete member (CASCADE handles bookings + memberships)
+            await memberRepo.RemoveAsync(member, ct);
+
+            // 🔐 Delete identity user
+            var identityDeleted = await identityService.DeleteAsync(userId);
+
+            if (!identityDeleted)
+                return new MemberResult(false, ["Failed to delete identity user"]);
+
+            return new MemberResult(true, []);
+        }
+        catch (Exception ex)
         {
-            errors.Add("Member UserId not found");
-            return new MemberResult(false, errors);
+            return new MemberResult(false, [$"Error deleting account: {ex.Message}"]);
         }
-        await repo.RemoveAsync(member, ct);
-
-        var deleted = await identityService.DeleteAsync(member.UserId);
-
-
-        return deleted ? new MemberResult(deleted, errors) : new MemberResult(deleted, ["Unable to delete account"]);
     }
 
 }
